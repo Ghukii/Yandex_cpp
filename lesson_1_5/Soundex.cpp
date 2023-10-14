@@ -28,6 +28,7 @@ int main(){
         }
     }
 
+    // Переписать!!! (int) s.length() < 4 выдает ABSNORMAL_ERROR
     if((int) s.length() < 4){
         for(int i = 0; i <= 4 - (int)s.length(); i++){
             s.push_back('0');
