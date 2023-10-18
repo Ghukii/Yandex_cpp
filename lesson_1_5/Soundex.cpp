@@ -28,14 +28,15 @@ int main(){
         }
     }
 
-    // Переписать!!! (int) s.length() < 4 выдает ABSNORMAL_ERROR
-    if((int) s.length() < 4){
-        for(int i = 0; i <= 4 - (int)s.length(); i++){
+    int len = s.length();
+
+    if(len < 4){
+        for(int i = 0; i < 4 - len;i++){
             s.push_back('0');
         }
     }
     else{
-        s.erase(4, (int) s.length() - 4);
+        s.erase(4, len - 4);
     }
 
     cout<<s<<endl;
