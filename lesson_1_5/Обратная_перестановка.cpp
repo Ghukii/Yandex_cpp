@@ -2,13 +2,6 @@
 #include<vector>
 using namespace std;
 
-void finnd(int x, vector<int> a){
-    for(size_t i = 0; i != a.size(); ++i){
-        if(a[i] == x)
-            cout<< (int) i + 1 << " ";
-    }
-}
-
 int main(){
     int n;
     cin >> n;
@@ -20,7 +13,15 @@ int main(){
         a.push_back(x);
     }
 
-    for(int i = 1; i < n + 1; i++){
-        finnd(i, a);
+    
+    for(int j = 1; j < n + 1; j++){
+        a:
+        for(size_t i = 0; i != a.size(); ++i){
+            if(a[i] == j){
+                cout<< (int) i + 1 << " ";
+                j++;
+                goto a;
+            }
+        }
     }
 }
