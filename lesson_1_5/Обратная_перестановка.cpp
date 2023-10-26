@@ -1,27 +1,28 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
+bool comp(vector <int> a, vector<int> b){
+    return a[0] < b[0];
+}
+
 int main(){
-    int n;
+    size_t n;
     cin >> n;
-    vector<int> a;
+    int k = (int) n;
+    vector<vector<int>> a(n, vector<int>(2));
 
     int x;
-    for(int i=0; i < n; i++){
-        cin>>x;
-        a.push_back(x);
+    for(int i=0; i < k; i++){
+        cin >> x;
+        a[i][0] = x;
+        a[i][1] = i + 1;
     }
 
-    
-    for(int j = 1; j < n + 1; j++){
-        a:
-        for(size_t i = 0; i != a.size(); ++i){
-            if(a[i] == j){
-                cout<< (int) i + 1 << " ";
-                j++;
-                goto a;
-            }
-        }
+    sort(a.begin(), a.end(), comp);
+
+    for(size_t i = 0; i != n; ++i){
+        cout << a[i][1] << " ";
     }
 }
