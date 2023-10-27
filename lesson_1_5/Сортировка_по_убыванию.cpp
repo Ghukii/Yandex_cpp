@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     vector<string> words;
     string word;
-    while(cin>>word){
+    while(getline(cin, word)){
         words.push_back(word);
     }
 

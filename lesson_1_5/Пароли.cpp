@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<cctype>
 using namespace std;
 
 int main(){
@@ -22,17 +23,12 @@ int main(){
     int big = 0, small = 0, numbers = 0, spec = 0;
 
     for(size_t i = 0; i != pw.size(); ++i){
-        int ch = (int) pw[i];
-
-        if(33 <= ch && ch <= 47){spec++;}
-        if(48 <= ch && ch <= 57){numbers++;}
-        if(58 <= ch && ch <= 64){spec++;}
-        if(65 <= ch && ch <= 90){big++;}
-        if(91 <= ch && ch <= 96){spec++;}
-        if(97 <= ch && ch <= 122){small++;}
-        if(123 <= ch && ch <= 126){spec++;}
+        if(isupper(pw[i])){big = 1;}
+        else if(islower(pw[i])){small = 1;}
+        else if(isdigit(pw[i])){numbers = 1;}
+        else {spec = 1;}
     }
 
-    if(big >= 3 || small >= 3 || numbers >= 3 || spec >= 3){cout<<"YES";}
+    if(big + small + numbers + spec >= 3){cout<<"YES";}
     else {cout<<"NO";}
 }
